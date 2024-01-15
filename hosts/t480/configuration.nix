@@ -15,13 +15,14 @@
     initrd = {
       luks.devices = {
         crypt = {
-          device = "/dev/nvme1n1p2";
+          device = "/dev/nvme1n1p2"; # TODO:
           preLVM = true;
         };
       };
     };
   };
 
+  # some goodie services
   services = {
     thermald.enable = true;
     tlp = {
@@ -44,7 +45,7 @@
 
   networking.hostName = "t480"; # Define your hostname.
 
-# driver stuff
+  # setup opengl and trackpoint
   hardware = {
     opengl = {
       enable = true;
@@ -64,6 +65,7 @@
     };
   };
 
+  # smart fan control
   # postconditions:
   # 1) status should be enabled:
   # cat /proc/acpi/ibm/fan
@@ -113,10 +115,11 @@
     };
   };
 
+  # default packages that need to be installed for that host
   environment.systemPackages = with pkgs; [
     glxinfo
   ];
-
+  # firmware update daemon
   services.fwupd.enable = true;
 }
 

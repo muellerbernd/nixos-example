@@ -89,6 +89,7 @@
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
+  # pipewire setup
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -117,7 +118,7 @@
       # require public key authentication for better security
       settings.PasswordAuthentication = false;
       # settings.KbdInteractiveAuthentication = false;
-      settings.PermitRootLogin = "no";
+      settings.PermitRootLogin = "yes";
       openFirewall = true;
     };
     # enable blueman
@@ -232,6 +233,7 @@
     enableSSHSupport = true;
   };
 
+  # vm user
   users.users.nixosvmtest.isSystemUser = true;
   users.users.nixosvmtest.initialPassword = "test";
   users.users.nixosvmtest.group = "nixosvmtest";

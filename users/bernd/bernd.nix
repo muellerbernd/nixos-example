@@ -22,6 +22,7 @@
       "storage"
       "users"
       "tty"
+      "nixosvmtest"
     ];
     openssh.authorizedKeys.keys = [
     ];
@@ -29,5 +30,4 @@
   };
   users.extraGroups.vboxusers.members = [ "bernd" ];
   users.extraGroups.video.members = [ "bernd" ];
-  users.extraGroups.wireshark.members = [ "bernd" ];
 }
